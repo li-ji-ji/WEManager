@@ -1,0 +1,49 @@
+/**app.wxss**/
+
+/*间隔条*/
+.driver{
+  width: 100%;
+  height: 30rpx;
+}
+
+/* 箭头 */
+.arraw::after{
+  content: "";
+  width: 20rpx;
+  height: 20rpx;
+  border-top:3rpx solid rgb(255, 255, 255);
+  border-right:3rpx solid rgb(255, 255, 255);
+  transform: rotate(45deg);
+  display: block;
+}
+
+/* 上下双圆角 */
+.top-radius{
+  border-top-right-radius: 15rpx;
+  border-top-left-radius: 15rpx;
+}
+.bottom-radius{
+  border-bottom-right-radius: 15rpx;
+  border-bottom-left-radius: 15rpx;
+}
+
+/*分割线*/
+.bottom-driver{
+  border-bottom: 1rpx solid rgb(255, 255, 255);
+}
+
+/*日期字体*/
+.date-font{
+  font-size:10px;
+  color: #ccc;
+}
+/* 页面容器 */
+.container-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}

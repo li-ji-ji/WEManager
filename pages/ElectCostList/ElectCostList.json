@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "component-historyNav": "/pages/ListNav/ListNav",
+    "component-listitem": "/pages/ListItem/ListItem"
+    },
+    "navigationBarTitleText": "用电缴费统计"
+}

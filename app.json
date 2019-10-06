@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/WaterList/WaterList",
+    "pages/ElectList/ElectList",
+    "pages/ListNav/ListNav",
+    "pages/ElectCostList/ElectCostList",
+    "pages/WaterCostList/WaterCostList",
+    "pages/WaterAddList/WaterAddList",
+    "pages/ElectAddList/ElectAddList",
+    "pages/Setting/Setting",
+    "pages/WaterPriceSet/WaterPriceSet",
+    "pages/ElectPriceSet/ElectPriceSet",
+    "pages/ListItem/ListItem"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00D8A0",
+    "backgroundColor": "#f1f1f1",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "selectedColor": "#00D8A0",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "统计",
+        "iconPath": "images/statistics.png",
+        "selectedIconPath": "images/statistics-cover.png"
+      },
+      {
+        "pagePath": "pages/Setting/Setting",
+        "text": "设置",
+        "iconPath": "images/setting.png",
+        "selectedIconPath": "images/setting-cover.png"
+      }
+    ]
+  }
+}

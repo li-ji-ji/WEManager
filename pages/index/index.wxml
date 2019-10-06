@@ -1,0 +1,10 @@
+<!-- 页面容器 -->
+<view class="container-box" style="width:{{windowWidth}}px;height:{{windowHeight}}px;" >
+  <!-- 菜单按钮容器 -->
+  <view class="navigate-box">
+
+    <view class="navigate-btn" wx:for="{{navList}}" wx:for-item="nav" bindtap="navToPage" data-url="{{nav.navUrl}}">
+      {{nav.navName}}
+    </view>
+  </view>
+</view>

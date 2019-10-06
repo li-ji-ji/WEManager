@@ -1,0 +1,16 @@
+<!--pages/ListItem/ListItem.wxml-->
+<!-- 统计列表单元格 -->
+<view class="item-box">
+  <view class="item-title" bindtap="itemClick">
+      <view class="title-text">
+        <slot name='title'></slot>
+      </view>
+      <image hidden="{{isShow==false}}" class="item-arrow" src="../../images/arrow-down.png" alt=""></image>
+      <image hidden="{{isShow==true}}" class="item-arrow" src="../../images/arrow-up.png" alt=""></image>
+  </view>
+  <view hidden="{{isShow==true}}" class="item-detail">
+      <view class="detail-text">
+        <slot name='content'></slot>
+      </view>
+  </view>
+</view>

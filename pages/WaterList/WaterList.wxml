@@ -1,0 +1,31 @@
+<!--pages/WaterList/WaterList.wxml-->
+<!-- 水费统计页面 -->
+<wxs module="DateFormat" src="../../wxs/DateFormat.wxs"></wxs>
+<view class="container-box">
+
+  <view class="list-nav-box">
+      <component-historyNav bindurlMsg="getList"  is-check-btn="{{checkBtn}}" stu-id="{{stuId}}"></component-historyNav>
+  </view>
+  <!-- 分割 -->
+  <view style="width:100%;height:70rpx;"></view>
+  <scroll-view enable-flex scroll-y  class="list-box" style="width:{{windowWidth}}px;height:{{windowHeight*0.82}}px;">
+    <component-listitem item-data="true"  wx:for="{{waterRecord}}" wx:key='key'>
+        <view slot="title" class="list-title-box">
+          <view>门牌号:{{item.houseId}}</view>
+          <view>时间:{{DateFormat.dateFormat(item.recordTime)}}</view>
+        </view>
+        <view slot="content">
+          <view class="content-font">上月水表数/吨：{{item.lastNum}}</view>
+          <view class="content-font">本月水表数/吨：{{item.thisNum}}</view>
+          <view class="content-font">用水数/吨：{{item.useNum}}</view>
+          <view class="content-font">应缴费用/元：{{item.costNum}}</view>
+          <view class="content-font ">
+            缴费状态：
+            <text wx:if="{{item.costStatus==1}}">已缴费</text>
+            <text wx:elif="{{item.costStatus==0}}">未缴费</text>
+          </view>
+          <view class="content-font" wx:if="{{item.costStatus==1}}">缴费时间：{{DateFormat.dateTimeFormat(item.costTime)}}</view>
+        </view>
+    </component-listitem>
+  </scroll-view>
+</view>

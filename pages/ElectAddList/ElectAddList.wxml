@@ -1,0 +1,13 @@
+<!--pages/ElectAddList/ElectAddList.wxml-->
+<!-- 电费记录添加页面 -->
+<view class="container-box" style="width:{{windowWidth}}px;height:{{windowHeight}}px;">
+  <!-- 列表容器 -->
+  <scroll-view scroll-y class="list-box">
+    <!-- 列表元素容器 -->
+    <view class="list-item-box" wx:for="{{houseList}}" >
+      <text>{{item.houseId}}</text>
+      <input class="num-input" type="number" placeholder="用电数/度" data-house-id="{{item.houseId}}" bindblur="addRecorda"></input>
+      <button class="submit-btn" data-house-id="{{item.houseId}}" bindtap="addRecord">提交</button>
+    </view>
+  </scroll-view>
+</view>

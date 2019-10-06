@@ -1,0 +1,6 @@
+<!--pages/ElectPriceSet/ElectPriceSet.wxml-->
+<view class="container-box" style="width:{{windowWidth}}px;height:{{windowHeight}}px;">
+  <input class="price-input" type="number" placeholder="{{waterConfig.configValue}}" bindblur="getConfigData"></input>
+  <text>元/度</text>
+  <button class="price-submit" bindtap="submitPrice">提交</button>
+</view> 

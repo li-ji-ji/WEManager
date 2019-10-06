@@ -1,0 +1,46 @@
+/* pages/WaterAddList/WaterAddList.wxss */
+/* 页面容器 */
+.container-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+/* 列表容器 */
+.list-box{
+  width: 100%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  padding: 20rpx;
+  flex-wrap: wrap;
+  border: 6rpx solid #00D8A0;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+.list-item-box{
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+  margin-bottom: 20rpx;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 20rpx;
+  padding: 6rpx;
+  box-sizing: border-box;
+  border: 2rpx solid #00D8A0;
+  background-color: #f7f7f7;
+}
+.submit-btn{
+  height: 100%;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10rpx;
+  margin: 0;
+}

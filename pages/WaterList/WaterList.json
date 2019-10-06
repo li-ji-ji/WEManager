@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "component-historyNav": "/pages/ListNav/ListNav",
+    "component-listitem":"/pages/ListItem/ListItem"
+  },
+  "navigationBarTitleText": "用水统计"
+}

@@ -1,0 +1,26 @@
+/* pages/ListNav/ListNav.wxss *//* pages/applyHistory2/applyHistory2.wxss */
+
+.apply-nav-box{
+  display: flex;
+  justify-content:space-evenly;
+}
+.apply-nav-box-item{
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  margin:0 5rpx;
+  border-radius: 40rpx;
+  position: relative;
+  background-color: #f7f7f7;
+}
+.apply-nav-box-item-arrow{
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

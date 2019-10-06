@@ -1,0 +1,14 @@
+/* pages/WaterPriceSet/WaterPriceSet.wxss */
+.container-box{
+  align-content: flex-start;
+}
+.price-input{
+  padding: 20rpx;
+  border: 1px solid #c5c5c5;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+.price-submit{
+  margin: 0 10rpx;
+  background-color: #00D8A0;
+}
