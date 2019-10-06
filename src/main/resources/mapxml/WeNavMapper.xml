@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.lhj.WEManager.mapper.WeNavMapper" >
+  <resultMap id="BaseResultMap" type="cn.lhj.WEManager.po.WeNav" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="nav_name" property="navName" jdbcType="VARCHAR" />
+    <result column="nav_url" property="navUrl" jdbcType="VARCHAR" />
+    <result column="nav_sort" property="navSort" jdbcType="INTEGER" />
+    <result column="nav_status" property="navStatus" jdbcType="INTEGER" />
+    <result column="nav_content" property="navContent" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="cn.lhj.WEManager.po.WeNav" extends="BaseResultMap" >
+    <result column="nav_img" property="navImg" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, nav_name, nav_url, nav_sort, nav_status, nav_content
+  </sql>
+  <sql id="Blob_Column_List" >
+    nav_img
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="cn.lhj.WEManager.po.WeNavExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from we_nav
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.lhj.WEManager.po.WeNavExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from we_nav
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from we_nav
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from we_nav
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.lhj.WEManager.po.WeNavExample" >
+    delete from we_nav
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.lhj.WEManager.po.WeNav" >
+    insert into we_nav (id, nav_name, nav_url, 
+      nav_sort, nav_status, nav_content, 
+      nav_img)
+    values (#{id,jdbcType=INTEGER}, #{navName,jdbcType=VARCHAR}, #{navUrl,jdbcType=VARCHAR}, 
+      #{navSort,jdbcType=INTEGER}, #{navStatus,jdbcType=INTEGER}, #{navContent,jdbcType=VARCHAR}, 
+      #{navImg,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.lhj.WEManager.po.WeNav" >
+    insert into we_nav
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="navName != null" >
+        nav_name,
+      </if>
+      <if test="navUrl != null" >
+        nav_url,
+      </if>
+      <if test="navSort != null" >
+        nav_sort,
+      </if>
+      <if test="navStatus != null" >
+        nav_status,
+      </if>
+      <if test="navContent != null" >
+        nav_content,
+      </if>
+      <if test="navImg != null" >
+        nav_img,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="navName != null" >
+        #{navName,jdbcType=VARCHAR},
+      </if>
+      <if test="navUrl != null" >
+        #{navUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="navSort != null" >
+        #{navSort,jdbcType=INTEGER},
+      </if>
+      <if test="navStatus != null" >
+        #{navStatus,jdbcType=INTEGER},
+      </if>
+      <if test="navContent != null" >
+        #{navContent,jdbcType=VARCHAR},
+      </if>
+      <if test="navImg != null" >
+        #{navImg,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.lhj.WEManager.po.WeNavExample" resultType="java.lang.Integer" >
+    select count(*) from we_nav
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update we_nav
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.navName != null" >
+        nav_name = #{record.navName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.navUrl != null" >
+        nav_url = #{record.navUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.navSort != null" >
+        nav_sort = #{record.navSort,jdbcType=INTEGER},
+      </if>
+      <if test="record.navStatus != null" >
+        nav_status = #{record.navStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.navContent != null" >
+        nav_content = #{record.navContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.navImg != null" >
+        nav_img = #{record.navImg,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update we_nav
+    set id = #{record.id,jdbcType=INTEGER},
+      nav_name = #{record.navName,jdbcType=VARCHAR},
+      nav_url = #{record.navUrl,jdbcType=VARCHAR},
+      nav_sort = #{record.navSort,jdbcType=INTEGER},
+      nav_status = #{record.navStatus,jdbcType=INTEGER},
+      nav_content = #{record.navContent,jdbcType=VARCHAR},
+      nav_img = #{record.navImg,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update we_nav
+    set id = #{record.id,jdbcType=INTEGER},
+      nav_name = #{record.navName,jdbcType=VARCHAR},
+      nav_url = #{record.navUrl,jdbcType=VARCHAR},
+      nav_sort = #{record.navSort,jdbcType=INTEGER},
+      nav_status = #{record.navStatus,jdbcType=INTEGER},
+      nav_content = #{record.navContent,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.lhj.WEManager.po.WeNav" >
+    update we_nav
+    <set >
+      <if test="navName != null" >
+        nav_name = #{navName,jdbcType=VARCHAR},
+      </if>
+      <if test="navUrl != null" >
+        nav_url = #{navUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="navSort != null" >
+        nav_sort = #{navSort,jdbcType=INTEGER},
+      </if>
+      <if test="navStatus != null" >
+        nav_status = #{navStatus,jdbcType=INTEGER},
+      </if>
+      <if test="navContent != null" >
+        nav_content = #{navContent,jdbcType=VARCHAR},
+      </if>
+      <if test="navImg != null" >
+        nav_img = #{navImg,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.lhj.WEManager.po.WeNav" >
+    update we_nav
+    set nav_name = #{navName,jdbcType=VARCHAR},
+      nav_url = #{navUrl,jdbcType=VARCHAR},
+      nav_sort = #{navSort,jdbcType=INTEGER},
+      nav_status = #{navStatus,jdbcType=INTEGER},
+      nav_content = #{navContent,jdbcType=VARCHAR},
+      nav_img = #{navImg,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.lhj.WEManager.po.WeNav" >
+    update we_nav
+    set nav_name = #{navName,jdbcType=VARCHAR},
+      nav_url = #{navUrl,jdbcType=VARCHAR},
+      nav_sort = #{navSort,jdbcType=INTEGER},
+      nav_status = #{navStatus,jdbcType=INTEGER},
+      nav_content = #{navContent,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
